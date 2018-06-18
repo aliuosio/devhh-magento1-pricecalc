@@ -9,3 +9,4 @@
     
     2.Make The Sticky Calculator overlay the page
     
+    ![alt text](./screencapture.jpg)
