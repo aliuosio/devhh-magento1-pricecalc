@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package   Devhh_PriceCalc
+ * @author    Osiozekhai Aliu <aliu@dev-hh.de>
+ * @copyright 2018 Devhh
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Devhh_PriceCalc>
+            <version>0.1.0</version>
+        </Devhh_PriceCalc>
+    </modules>
+    <global>
+        <blocks>
+            <price_calc>
+                <class>Devhh_PriceCalc_Block</class>
+            </price_calc>
+        </blocks>
+        <helpers>
+            <price_calc>
+                <class>Devhh_PriceCalc_Helper</class>
+            </price_calc>
+        </helpers>
+    </global>
+    <frontend>
+        <translate>
+            <modules>
+                <Devhh_PriceCalc>
+                    <files>
+                        <default>Price_Calc.csv</default>
+                    </files>
+                </Devhh_PriceCalc>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <price_calc>
+                    <file>devhh/price_calc.xml</file>
+                </price_calc>
+            </updates>
+        </layout>
+        <routers>
+            <price_calc>
+                <use>standard</use>
+                <args>
+                    <module>Devhh_PriceCalc</module>
+                    <frontName>price-calculator</frontName>
+                </args>
+            </price_calc>
+        </routers>
+    </frontend>
+</config>

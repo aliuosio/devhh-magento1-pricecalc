@@ -1,0 +1,96 @@
+<?php
+/** @var  $this Sam_PriceCalc_Block_Content */
+/** @var Mage_Catalog_Model_Product $product */
+$product = $this->getProduct();
+/** @var Mage_Core_Helper_Data $coreHelper */
+$coreHelper = $this->helper('core');
+
+$subTotal = function ($productFinalPrice) use ($coreHelper) {
+    return $coreHelper->currency($this->getProductFinalPrice() + $productFinalPrice);
+};
+$optionPrice = function ($optionId, $optionTypeId) {
+    return $this->getProductOptionsPrice($optionId, $optionTypeId);
+};
+$optionQuantity = function ($optionId, $optionTypeId) {
+    return $this->getOptionQuantity($optionId, $optionTypeId);
+};
+$priceWithTax = function ($optionId, $optionTypeId, $asCurrency = true) use ($optionPrice, $optionQuantity, $coreHelper) {
+    $result = $optionPrice($optionId, $optionTypeId) * $optionQuantity($optionId, $optionTypeId);
+    return ($asCurrency) ? $coreHelper->currency($result, true, false) : $result;
+};
+?>
+<?php if ($this->getProduct()->getOptions()): ?>
+    <?php if ($this->getOptionsItems()): ?>
+        <h4 class="review-title"><?php echo $this->__('Price Calculator'); ?></h4>
+        <table class="calc">
+            <thead>
+            <tr class="first last">
+                <th class="a-center"><?php echo $this->__('Qty') ?></th>
+                <th class="a-productname"><?php echo $this->__('Product') ?></th>
+                <th class="a-right"><?php echo $this->__('Sum') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="calc1 a-center">
+                    <?php echo $this->getCurrentQty(); ?>
+                </td>
+                <td class="a-productname">
+                    <b class="product-name"><?php print $product->getName() ?></b>
+                </td>
+                <td class="last calcPrice a-right">
+            <span class="cart-price">
+                <span class="calc1"><?php echo $coreHelper->currency($this->getProductFinalPrice()); ?></span>
+            </span>
+                </td>
+            </tr>
+
+            <?php /** @var Mage_Catalog_Model_Product_Option_Value $optionItem */ ?>
+            <?php foreach ($this->getOptionsItems() as $optionItem): ?>
+                <tr>
+                    <td class="calc1 a-center">
+                        <?php
+                        echo $optionQuantity(
+                            $optionItem->getOptionId(), $optionItem->getOptionTypeId()
+                        );
+                        ?>
+                    </td>
+                    <td class="a-productname">
+                        <b class="product-name"><?php echo $optionItem->getOption()->getTitle(); ?></b>
+                        <p><?php echo $optionItem->getTitle(); ?></p>
+                    </td>
+                    <td class="last calcPrice a-right">
+                                <span class="cart-price">
+                                    <span class="calc1">
+                                        <?php
+                                        echo $priceWithTax($optionItem->getOptionId(), $optionItem->getOptionTypeId());
+                                        $optionsSum += $priceWithTax(
+                                            $optionItem->getOptionId(), $optionItem->getOptionTypeId(), false
+                                        );
+                                        ?>
+                                    </span>
+                                </span>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+
+            </tbody>
+        </table>
+        <div class="calc_shop">
+            <ul>
+                <li>
+            <span class="calcsumtotal">
+                <?php echo $this->__("Subtotal") ?>: <?php echo $subTotal($optionsSum); ?>
+            </span>
+                </li>
+                <li>
+            <span class="calctaxtotal">
+                <?php echo $this->__("including") . ' ' . $this->getTaxPercent() ?>
+                %
+                <?php echo $this->__('VAT') . ', ' . $this->__('in addition') . ' ' . $this->__('shipping'); ?>
+            </span>
+                </li>
+            </ul>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

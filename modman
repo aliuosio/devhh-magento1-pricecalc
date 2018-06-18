@@ -1,0 +1,8 @@
+app/code/local/Devhh/PriceCalc
+app/design/frontend/base/default/layout/devhh/price_calc.xml
+app/design/frontend/base/default/template/devhh/*               app/design/frontend/base/default/template/devhh/
+app/locale/de_DE/Price_Calc.csv
+skin/frontend/base/default/css/devhh/*                          skin/frontend/base/default/css/devhh/
+js/jquery/jquery-scrolltofixed-min.js
+js/devhh/*                                                      js/devhh/
+app/etc/modules/Devhh_PriceCalc.xml

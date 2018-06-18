@@ -1,0 +1,149 @@
+@media screen and (min-width: 775px) {
+    #price-calculator {
+        float: right;
+        max-width: 250px;
+        min-width: 150px;
+        margin: 10px 0;
+        padding: 2px;
+        z-index: 1000;
+        display: block;
+        background-color: #ffffff;
+    }
+
+    #price-calculator p {
+        display: block;
+    }
+
+    #price-calculator .a-right {
+        padding-right: 5px;
+    }
+
+    #price-calculator tr:nth-child(even), .overlay {
+        background-color: #EEE;
+    }
+
+    .calc_qty {
+        margin-right: 0px;
+    }
+
+    .calc_name {
+        color: #46962b;
+        margin-right: 3px;
+    }
+
+    .calc_sum {
+        font-size: 110%;
+        color: #333;
+    }
+
+    .calc_shop li:first-child {
+        text-align: right;
+    }
+
+    .calcsumtotal {
+        float: right;
+        font-weight: 600;
+        width: 100%;
+        padding-right: 5px;
+        font-size: 12px;
+    }
+
+    div#price-calculator h3 {
+        margin-bottom: 5px;
+    }
+
+    div.calc_shop {
+        float: right;
+    }
+
+    table.calc,
+    div.calc_shop,
+    table.delivery-duration-table {
+        border-bottom: 1px solid #2f2f2f;
+        width: 100%;
+        float: right;
+        font-size: 12px;
+    }
+
+    table.delivery-duration-table {
+        margin-top: 10px;
+        border-bottom: none;
+        line-height: 15px;
+    }
+
+    table.delivery-duration-table tr td {
+        padding-left: 5px;
+    }
+
+    table.delivery-duration-table tr td:nth-child(2) {
+        text-align: right;
+        padding-right: 5px;
+    }
+
+    .calctaxtotal {
+        float: right;
+        display: block;
+        clear: both;
+        margin-right: 5px;
+    }
+
+    .availability {
+        font-size: 12px;
+    }
+
+    table.calc {
+        width: 100%;
+    }
+
+    table.calc th, table.calc td {
+        padding: 5px;
+        line-height: 15px;
+    }
+
+    table.calc th {
+        padding-bottom: 0px;
+    }
+
+    table.calc .calcPrice {
+        float: right;
+    }
+
+    div.product-shop-right p {
+        margin: 0;
+    }
+
+    table.calc thead th {
+        border-bottom: 1px solid #2f2f2f;
+    }
+
+    .calc1, b.product-name {
+        border: none;
+        margin: 0;
+        padding: 0;
+        font-size: 12px !important;
+    }
+
+    .calc {
+        font-size: 12px !important;
+    }
+
+    td.calcPrice .price, .delivery-duration-table {
+        font-size: 12px;
+    }
+
+    .calc tbody td,
+    .delivery-duration-table tbody td {
+        vertical-align: top;
+        font-size: 12px;
+    }
+
+    .a-productname {
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 774px) {
+    #price-calculator {
+        display: none;
+    }
+}
