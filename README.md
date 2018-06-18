@@ -9,4 +9,4 @@
     
     2.Make The Sticky Calculator overlay the page
     
-    ![alt text](https://raw.githubusercontent.com/aliuosio/devhh-magento1-pricecalc/master/screencapture.jpg)
+![alt text](https://raw.githubusercontent.com/aliuosio/devhh-magento1-pricecalc/master/screencapture.jpg)
